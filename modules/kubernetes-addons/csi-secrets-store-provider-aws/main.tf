@@ -4,6 +4,7 @@ locals {
 }
 
 resource "kubernetes_namespace_v1" "csi_secrets_store_provider_aws" {
+  count = var.create_namespace ? 1 : 0
   metadata {
     name = local.namespace
   }
